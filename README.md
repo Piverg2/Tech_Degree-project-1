@@ -1,2 +1,2 @@
-# Tech_Degree-project-1
+# Tech Degree  - Project 1 - Number Guessing Game
  My First Techdegree project

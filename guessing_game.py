@@ -14,7 +14,7 @@ def start_game():
         guess = int(guess)
         break
       except ValueError:
-        guess = print("\nSorry! That is not a number.. Please try again..")
+        print("\nSorry! That is not a number.. Please try again..")
     return guess
 
   print("  -------------------------------  ")

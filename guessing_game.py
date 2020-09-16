@@ -5,43 +5,37 @@ import random
 
 
 def start_game():
+  answer = random.randint(1, 10)
 
   def guess_number():
-    try:
-      guess = int(input("Pick a number between 1 and 10: "))
-    except ValueError:
-      guess = int(
-          input("Sorry! That is not a number. Pick a number between 1 and 10: "))
+    while True:
+      try:
+        guess = input("Pick a number between 1 and 10: ")
+        guess = int(guess)
+        break
+      except ValueError:
+        guess = print("\nSorry! That is not a number.. Please try again..")
     return guess
 
   print("  -------------------------------  ")
   print("Welcome to the Number Guessing Game!")
   print("  -------------------------------  ")
-  guess = guess_number()
   tries = 1
+  guess = guess_number()
   # Had to look up how to use Random and randomint. Source: https://www.w3schools.com/python/ref_random_randint.asp
-  answer = random.randint(1, 10)
 
+  
   while guess != answer:
     tries += 1
-    try:
-      if guess > 10:
-        print("\nThat number is not between 1 and 10!")
-        guess = guess_number()
-        continue
-      elif guess > answer:
-        print("\nIt's lower")
-        guess = guess_number()
-        continue
-      elif guess < answer:
-        print("\nIt's higher")
-        guess = guess_number()
-        continue
-      else:
-        break
-    except ValueError:
-      guess = int(
-          input("Sorry! That is not a number. Pick a number between 1 and 10: "))
+    if guess > 10:
+      print("\nThat number is not between 1 and 10!")
+      guess = guess_number()
+    elif guess > answer:
+      print("\nIt's lower")
+      guess = guess_number()
+    elif guess < answer:
+      print("\nIt's higher")
+      guess = guess_number()
   if guess == answer:
     if tries == 1:
       print("Awesome! You guessed the answer on the first try!")

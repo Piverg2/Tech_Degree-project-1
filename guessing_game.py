@@ -5,7 +5,9 @@ import random
 
 
 def start_game():
+    # Had to look up how to use Random and randomint. Source: https://www.w3schools.com/python/ref_random_randint.asp
   answer = random.randint(1, 10)
+
 
   def guess_number():
     while True:
@@ -16,15 +18,11 @@ def start_game():
       except ValueError:
         print("\nSorry! That is not a number.. Please try again..")
     return guess
-
   print("  -------------------------------  ")
   print("Welcome to the Number Guessing Game!")
   print("  -------------------------------  ")
   tries = 1
   guess = guess_number()
-  # Had to look up how to use Random and randomint. Source: https://www.w3schools.com/python/ref_random_randint.asp
-
-  
   while guess != answer:
     tries += 1
     if guess > 10:
